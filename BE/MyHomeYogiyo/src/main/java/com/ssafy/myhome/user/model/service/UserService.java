@@ -1,5 +1,11 @@
 package com.ssafy.myhome.user.model.service;
 
-public interface UserService {
+import com.ssafy.myhome.user.model.UserDto;
 
+public interface UserService {
+	UserDto login(UserDto UserDto) throws Exception;
+	UserDto userInfo(String userId) throws Exception;
+	void saveRefreshToken(String userId, String refreshToken) throws Exception;
+	Object getRefreshToken(String userId) throws Exception;
+	void deleRefreshToken(String userId) throws Exception;
 }
