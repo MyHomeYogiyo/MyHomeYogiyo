@@ -1,12 +1,12 @@
 <script setup>
-import Introduction from '../components/main/Introduction.vue';
+import VIntroduction from "../components/main/VIntroduction.vue";
 import SlidingMenuCard from '../components/main/SlidingMenuCard.vue';
 </script>
 
 <template>
     <div class="view_container">
         <!-- <img src="../assets/img/index.jpg" alt=""> -->
-        <Introduction/>
+        <VIntroduction/>
         <SlidingMenuCard/>
     </div>
 </template>
