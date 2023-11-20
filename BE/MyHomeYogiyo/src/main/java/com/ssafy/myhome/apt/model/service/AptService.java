@@ -1,14 +1,3 @@
-package com.ssafy.myhome.apt.model.service;
-
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.http.ResponseEntity;
-
-import com.ssafy.myhome.apt.model.AptDto;
-
-public interface AptService {
-	List<AptDto> getApt(Map<String,String> map) throws Exception;
-	void saveKeyword(String keyword,String userId) throws Exception;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:eec49d8b19a1bcd1afc14461fc322387f3e115c46cd88c55971ad7afca94fc6f
+size 477
