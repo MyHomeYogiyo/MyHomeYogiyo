@@ -12,7 +12,7 @@
 #container{
     /* 화면 정중앙 배치 */
     display: flex;
-    margin-top: 100px;
+    /* margin-top: 0vh; */
     justify-content: center;
     align-items: center;
 }
