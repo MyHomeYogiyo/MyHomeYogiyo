@@ -1,19 +1,3 @@
-<script setup>
-import TheHeadingNavbar from "./components/layout/TheHeadingNavbar.vue";
-</script>
-
-<template>
-  <div id="outer">
-    <TheHeadingNavbar></TheHeadingNavbar>
-    <router-view></router-view>
-  </div>
-</template>
-
-<style scoped>
-#outer {
-  width: 100vw;
-  height: 100vh;
-  background-size: cover;
-  background-image: url("./assets/img/index.jpg");
-}
-</style>
+version https://git-lfs.github.com/spec/v1
+oid sha256:7ef11fd70b6252eb54e8edb27c6541e7fca41f1c482c1198c76c000dea29ab95
+size 413
