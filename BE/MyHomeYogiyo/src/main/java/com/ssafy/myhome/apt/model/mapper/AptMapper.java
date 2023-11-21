@@ -11,4 +11,5 @@ public interface AptMapper {
 	List<AptDto> getApt(Map	<String,String> map) throws SQLException;
 	void saveKeyword(Map<String,String> map) throws SQLException;
 	List<DealDto> dealSearch(String aptCode) throws SQLException;
+	void likeApt(Map<String,String> map) throws SQLException;
 }
