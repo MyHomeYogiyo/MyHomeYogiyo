@@ -1,5 +1,5 @@
 <script setup>
-import TheHeadingNavbar from "./components/layout/TheHeadingNavbar.vue"
+import TheHeadingNavbar from "./components/layout/TheHeadingNavbar.vue";
 </script>
 
 <template>
@@ -10,10 +10,10 @@ import TheHeadingNavbar from "./components/layout/TheHeadingNavbar.vue"
 </template>
 
 <style scoped>
-#outer{
+#outer {
   width: 100vw;
-  height:100vh;
+  height: 100vh;
   background-size: cover;
-  background-image: url( "./assets/img/index.jpg" ); 
+  background-image: url("./assets/img/index.jpg");
 }
 </style>
