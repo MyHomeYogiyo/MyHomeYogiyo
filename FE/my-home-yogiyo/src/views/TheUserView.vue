@@ -14,7 +14,7 @@
     display: flex;
     /* margin-top: 0vh; */
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     background-color: white;
     height: 100vh;
 }
