@@ -1,10 +1,3 @@
-import { localAxios } from "@/util/http-commons";
-
-const local = localAxios();
-
-function getApt(param, success, fail) {
-  console.log("got param" + param.sidoName);
-  local.get(`/apt/keySearch`, { params: param }).then(success).catch(fail);
-}
-
-export { getApt };
+version https://git-lfs.github.com/spec/v1
+oid sha256:79dae123cb4e0eb58395277cefbd1bcedbb63278fd4570e7559bd3bbb3cce6f4
+size 397
