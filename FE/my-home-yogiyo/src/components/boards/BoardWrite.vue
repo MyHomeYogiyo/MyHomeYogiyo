@@ -4,13 +4,9 @@ import BoardFormItem from "./item/BoardFormItem.vue";
 
 <template>
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <h2 class="my-3 py-3 shadow-sm bg-light text-center">
-          <mark class="sky">글쓰기</mark>
-        </h2>
-      </div>
-      <div class="col-lg-10 text-start">
+    <div>
+      <div style="font: 40px gMedium;" class="text-center py-4 mb-4">글쓰기</div>
+      <div class="d-flex justify-center align-center">
         <BoardFormItem type="regist" />
       </div>
     </div>
