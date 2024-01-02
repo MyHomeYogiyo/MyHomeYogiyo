@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:03efa0cdec3746d92ebcfe99830df92b09806ece91176452a096b5791eab0a39
-size 567
+package com.ssafy.myhome.user.model.service;
+
+import com.ssafy.myhome.user.model.UserDto;
+
+public interface UserService {
+	UserDto login(UserDto UserDto) throws Exception;
+	UserDto userInfo(String userId) throws Exception;
+	void saveRefreshToken(String userId, String refreshToken) throws Exception;
+	Object getRefreshToken(String userId) throws Exception;
+	void deleRefreshToken(String userId) throws Exception;
+	void regist(UserDto userDto) throws Exception;
+	void modifyPassword(String userId) throws Exception;
+	void deleteUser(String userId) throws Exception;
+}

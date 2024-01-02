@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c2fa9d6740075e982f2569471e5da9d392e71e921dcfb329cfda39cdae63a2e0
-size 551
+package com.ssafy.myhome.notice.model.service;
+
+import java.util.Map;
+
+import com.ssafy.myhome.notice.model.NoticeDto;
+import com.ssafy.myhome.notice.model.NoticeListDto;
+
+public interface NoticeService {
+
+	void writeArticle(NoticeDto boardDto) throws Exception;
+	NoticeListDto listArticle(Map<String, String> map) throws Exception; 
+	NoticeDto getArticle(int articleNo) throws Exception;
+	void updateHit(int articleNo) throws Exception;
+	void modifyArticle(NoticeDto boardDto) throws Exception;
+	void deleteArticle(int articleNo) throws Exception;
+}

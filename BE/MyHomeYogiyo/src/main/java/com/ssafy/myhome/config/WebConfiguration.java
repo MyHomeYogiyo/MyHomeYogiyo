@@ -1,3 +1,56 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:eed9f9d6f87ed3a73fa49c7bad61727f5cfaa5626015f8b7892fe78f5069f942
-size 2009
+package com.ssafy.myhome.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.ssafy.myhome.interceptor.JWTInterceptor;
+
+@Configuration
+@EnableWebMvc
+public class WebConfiguration implements WebMvcConfigurer {
+	
+	private JWTInterceptor jwtInterceptor;
+
+	public WebConfiguration(JWTInterceptor jwtInterceptor) {
+		super();
+		this.jwtInterceptor = jwtInterceptor;
+	}
+
+	@Override
+	public void addCorsMappings(CorsRegistry registry) {
+//		default 설정.
+//		Allow all origins.
+//		Allow "simple" methods GET, HEAD and POST.
+//		Allow all headers.
+//		Set max age to 1800 seconds (30 minutes).
+		registry
+			.addMapping("/**")
+			.allowedOrigins("*")
+//			.allowedOrigins("http://localhost:5173", "http://localhost:5174")
+			.allowedMethods(HttpMethod.GET.name(), HttpMethod.POST.name(), HttpMethod.PUT.name(),
+						HttpMethod.DELETE.name(), HttpMethod.HEAD.name(), HttpMethod.OPTIONS.name(),
+						HttpMethod.PATCH.name())
+//			.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH", "HEAD")
+//			.allowCredentials(true)
+//			.exposedHeaders("*")
+			.maxAge(1800); // Pre-flight Caching
+	}
+
+//	@Override
+//	public void addInterceptors(InterceptorRegistry registry) {
+//		registry.addInterceptor(jwtInterceptor);
+//	}
+
+//	Swagger UI 실행시 404처리
+//	Swagger2 일경우
+//	@Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//		registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+//        registry.addResourceHandler("/swagger-ui.html**").addResourceLocations("classpath:/META-INF/resources/swagger-ui.html");
+//        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+//    }
+
+}

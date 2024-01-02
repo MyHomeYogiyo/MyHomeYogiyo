@@ -1,3 +1,53 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b9fe339bd24724c365132c967d4f9551d0975f3342837f4e20cd1258de5cdcb0
-size 1879
+package com.ssafy.myhome.config;
+
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+
+import javax.sql.DataSource;
+
+@Configuration
+@PropertySource("classpath:/application.properties")
+@MapperScan(basePackages = { "com.ssafy.myhome.*.model.mapper" })
+public class DataBaseConfiguration {
+	
+	final ApplicationContext applicationContext;
+
+	public DataBaseConfiguration(ApplicationContext applicationContext) {
+		this.applicationContext = applicationContext;
+	}
+
+	@Bean
+	@ConfigurationProperties(prefix = "spring.datasource.hikari")
+	public HikariConfig hikariConfig() {
+		return new HikariConfig();
+	}
+
+	@Bean
+	public DataSource dataSource() {
+		return new HikariDataSource(hikariConfig());
+	}
+
+	@Bean
+	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
+		SqlSessionFactoryBean session = new SqlSessionFactoryBean();
+		session.setDataSource(dataSource);
+		session.setMapperLocations(applicationContext.getResources("classpath:mapper/**/*.xml"));
+		session.setTypeAliasesPackage("com.ssafy.myhome.*.model");
+//		session.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:mybatis/mybatis-config.xml"));
+		return session.getObject();
+	}
+
+	@Bean
+	public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
+		return new SqlSessionTemplate(sqlSessionFactory);
+	}
+}

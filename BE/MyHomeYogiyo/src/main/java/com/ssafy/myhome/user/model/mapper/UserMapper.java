@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:118a45e4fa3ec9d77cb8e47295a0945fc84b5049b5ffa3a3a1fb9504f9a0cce5
-size 697
+package com.ssafy.myhome.user.model.mapper;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.ssafy.myhome.user.model.UserDto;
+
+@Mapper
+public interface UserMapper {
+	UserDto login(UserDto UserDto) throws SQLException;
+	UserDto userInfo(String userId) throws SQLException;
+	void saveRefreshToken(Map<String, String> map) throws SQLException;
+	Object getRefreshToken(String userid) throws SQLException;
+	void deleteRefreshToken(Map<String, String> map) throws SQLException;
+	void regist(UserDto userDto) throws SQLException;
+	void modifyPassword(String userId) throws SQLException;
+	void deleteUser(String userId) throws SQLException;
+}

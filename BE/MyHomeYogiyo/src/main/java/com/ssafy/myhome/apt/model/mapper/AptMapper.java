@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:28316faff51b79c55e4f28d66d1841c465a8e08b167e1971016642b350130d68
-size 619
+package com.ssafy.myhome.apt.model.mapper;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+import com.ssafy.myhome.apt.model.AptDto;
+import com.ssafy.myhome.apt.model.DealDto;
+
+public interface AptMapper {
+	List<AptDto> getApt(Map	<String,String> map) throws SQLException;
+	void saveKeyword(Map<String,String> map) throws SQLException;
+	List<DealDto> dealSearch(String aptCode) throws SQLException;
+	void likeApt(Map<String,String> map) throws SQLException;
+	List<Integer> getValidYear(String aptCode) throws SQLException;
+	void deletelikeApt(Map<String, String> map)throws SQLException;
+}
